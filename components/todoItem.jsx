@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import styles from "../styles/Home.module.css";
 
-export default function ToDoItem() {
+export default function ToDoItem({ todo }) {
     const [isChecked, setIsChecked] = useState(false);
     const handlecheck = async () => { };
     const handleDelete = () => { };
@@ -9,12 +9,12 @@ export default function ToDoItem() {
     return (
         <div>
             <span className={styles.eachtodo}>
-                <p className={styles.text}>Breakfast</p>
+                <p className={styles.text}>{todo.data.task}</p>
                 <div>
                     <input
                         type="checkbox"
                         className={styles.toggle}
-                        defaultChecked={false}
+                        defaultChecked={todo.data.done}
                         onChange={handlecheck}
                         onClick={() => setIsChecked(!isChecked)}
                     />
